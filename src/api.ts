@@ -1,0 +1,1 @@
+//https://github.com/MagicTheGathering/mtg-sdk-javascript
