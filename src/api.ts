@@ -1,1 +1,1 @@
-//https://github.com/MagicTheGathering/mtg-sdk-javascript
+// https://scryfall.com/docs/api
