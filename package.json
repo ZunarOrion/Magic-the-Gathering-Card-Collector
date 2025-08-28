@@ -11,5 +11,8 @@
   "devDependencies": {
     "typescript": "^6.0.0-dev.20250825",
     "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@netlify/functions": "^4.2.4"
   }
 }

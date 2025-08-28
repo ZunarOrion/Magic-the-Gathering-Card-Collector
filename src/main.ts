@@ -1,32 +1,46 @@
+import { recentlyViewedCards } from './recentllyViewedCard.ts'
+import { findCardBtn } from './findCardBtn.ts'
 import './style.css'
-// import typescriptLogo from './typescript.svg'
-// import viteLogo from '/vite.svg'
-// import { setupCounter } from './counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div id=searchBar>Search Bar</div>
-  <div id=logInBtn>Login Button</div>
-  <div id=findCardBtn>Find Card Button</div>
-  <div id=myCollectionBtn>My Collection Button</div>
-  <div id=recentllyViewedCards>Recentlly Viewed Cards</div>  
+  <input type="text" placeholder="Search Card..." id="searchBar"></input>
+  <button type="button" id="logInBtn">Login</button>
+  <button type="button" id="findCardBtn">Find Cards</button>
+  <button type="button" id="myCollectionBtn">My Collection</button>
+  <div id="recentlyViewedCards">
+    <div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="Naturbild1.jpg">
+        <div class="text">Card nr 1</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="Naturbild2.jpg">
+        <div class="text">Card nr 2</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="Naturbild3.jpg">
+        <div class="text">Card nr 3</div>
+    </div>
+
+    <a class="prev">❮</a>
+    <a class="next">❯</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+</div>
+  </div>  
 
 `
-
-// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
-
-//  <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://www.typescriptlang.org/" target="_blank">
-//       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-//     </a>
-//     <h1>Vite + TypeScript</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite and TypeScript logos to learn more
-//     </p>
-//   </div>
+recentlyViewedCards(document.querySelector<HTMLDivElement>('#recentlyViewedCards')!)
+findCardBtn(document.querySelector<HTMLButtonElement>('#findCardBtn')!)
