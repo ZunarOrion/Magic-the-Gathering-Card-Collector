@@ -1,6 +1,6 @@
 export function recentlyViewedCards(element: HTMLDivElement) {
     let slideIndex = 1;
-    const slides = element.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+    const slides = element.getElementsByClassName("slides") as HTMLCollectionOf<HTMLElement>;
     const dots = element.getElementsByClassName("dot") as HTMLCollectionOf<HTMLElement>;
     showSlides(slideIndex);
 
