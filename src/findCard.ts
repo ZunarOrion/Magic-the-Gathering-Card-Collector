@@ -13,19 +13,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <button type="button" class="logInBtn">Login</button>
     </header>
 
-    <h1>Login</h1>
-    <div>
-        <input placeholder="Email"></input>
-        <!--Only visible if invalid.--><p>Invalid Email</p>
-        <input placeholder="Password"></input>
-        <!--Only visible if invalid.--><p>Invalid Password</p>
-        
-        <!--A button that checkes if the information given is matching any account in the database, if not return invalid Email or Password under inputfields.-->
-        <button>Login</button>
-
-        <!--Sends user to a creat account page.-->
-        <p>Create account</p>
-        <!--Sends user to a page where they can submit an email for a reset link to be set to.-->
-        <p>Forgotten password?</p>
+    <!--A funciton that takes in the most recent cards released and creates small boxes for each card containing img, name and price.-->
+    <div class="cardBox">
+        <img class="cardImg"></img>
+        <p class="cardName"></p>
+        <p class="cardCost"></p>
     </div>
 `

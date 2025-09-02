@@ -5,7 +5,7 @@ body {
   background-color: #8e8e8e;
 }
 
-.topRow {
+header {
   display: flex;
   justify-content: right;
   height: 2rem;

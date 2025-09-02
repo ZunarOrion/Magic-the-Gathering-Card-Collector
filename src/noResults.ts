@@ -12,20 +12,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <!--A button that sends the user to another html page for logging in.-->
         <button type="button" class="logInBtn">Login</button>
     </header>
+    <h1 class="headline">Advanced Search</h1>
 
-    <h1>Login</h1>
-    <div>
-        <input placeholder="Email"></input>
-        <!--Only visible if invalid.--><p>Invalid Email</p>
-        <input placeholder="Password"></input>
-        <!--Only visible if invalid.--><p>Invalid Password</p>
-        
-        <!--A button that checkes if the information given is matching any account in the database, if not return invalid Email or Password under inputfields.-->
-        <button>Login</button>
+    <!--Shows what was put into the inputs from advancedSearch.ts, if empty than show only the p text.-->
+    <p>No results from the search (insert what was in the input fields from advancedSearch.ts)</p>
 
-        <!--Sends user to a creat account page.-->
-        <p>Create account</p>
-        <!--Sends user to a page where they can submit an email for a reset link to be set to.-->
-        <p>Forgotten password?</p>
-    </div>
+    <!--A button that sends the user to another html page for advanced search.-->
+    <button>Adjust Search</button>
 `
