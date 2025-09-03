@@ -1,4 +1,5 @@
-import { recentlyViewedCards } from './recentllyViewedCard.ts'
+
+import { renderHomePage } from './pages/home.ts'
 import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -16,47 +17,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <button type="button" class="logInBtn">Login</button>
   </header>
 
-  <div class="middleRow">
-    <!--A button that sends the user to another html page for exp; cards that are hot on the market.-->
-    <button type="button" class="findCardBtn">Find Cards</button>
-
-    <!--A button that sends the user to another html page for their collections.-->
-    <button type="button" class="myCollectionBtn">My Collection</button>
-  </div>
-  
-  <!--A slideshow that show the most recent cards the user has viewed, if not logged in it will show recently released sets.-->
-  <div id="recentlyViewedCards">
-    <div class="slideshow-container">
-
-      <div class="slides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="Naturbild1.jpg">
-        <div class="text">Card nr 1</div>
-      </div>
-
-      <div class="slides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="Naturbild2.jpg">
-        <div class="text">Card nr 2</div>
-      </div>
-
-      <div class="slides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="Naturbild3.jpg">
-        <div class="text">Card nr 3</div>
-      </div>
-
-      <a class="prev">❮</a>
-      <a class="next">❯</a>
-
-    </div>
-
-    <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-    </div>
-  </div>  
+  <div id="pageContent"></div>
 `
-recentlyViewedCards(document.querySelector<HTMLDivElement>('#recentlyViewedCards')!)
 
+
+renderHomePage();
