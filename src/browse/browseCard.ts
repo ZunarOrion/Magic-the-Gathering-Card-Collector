@@ -1,4 +1,5 @@
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+export function renderBrowseCardPage () {
+    return document.querySelector("#pageContent")!.innerHTML = `
     <header> 
         <!--Button which sends the user back to main page.-->
         <button type="button" class="logoBtn">Logo!</button>
@@ -19,4 +20,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <p class="cardName"></p>
         <p class="cardCost"></p>
     </div>
-`
+`;
+}
