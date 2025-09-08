@@ -1,18 +1,16 @@
-const form = document.getElementById("myForm");
-const anteckning = document.getElementById("#anteckning");
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let title = ""
-    let note = ""
-    
-    for (const [key, value] of formData.entries()) {
-        console.log(key + ": " + value);
-    }
-    const dataObject = Object.fromEntries(formData.entries()) {
-        console.log("As object", String(dataObject));
-        anteckning?.innerHTML = `
-            <h1>${title}</h1>
-            <h5>${note}</h5>
-        `
-    }
-})
+let myName = ""
+const mySubmitButton = document.getElementById("submit") as HTMLSelectElement;
+mySubmitButton.addEventListener("click", async (event) => {
+    event.preventDefault()
+    myName = document.getElementById("myInput")!.value;
+    console.log(myName);
+    const result = await fetch("http://127.0.0.1:3000/form", {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify({name: myName})
+    });
+    console.log(result);
+});
+

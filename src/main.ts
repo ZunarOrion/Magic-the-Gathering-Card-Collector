@@ -1,11 +1,11 @@
-
 import { renderHomePage } from './home/home.ts'
 import './style.css'
 
+
 console.log('Script loaded');
 
-const app = document.querySelector<HTMLDivElement>('app');
-console.log('app element:', app);
+const app = document.querySelector<HTMLDivElement>('#app');
+console.log('app element:', app)
 if (!app) {
   console.error('#app not found in DOM');
 } else {
@@ -23,6 +23,7 @@ if (!app) {
 
       <!--A button that sends the user to another html page for logging in.-->
       <button type="button" class="logInBtn">Login</button>
+      
     </header>
 
     <div id="pageContent"></div>

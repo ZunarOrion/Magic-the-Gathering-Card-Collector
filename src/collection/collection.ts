@@ -17,9 +17,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!--A button that opens a small window (createCollectionWindow) to write in an input, create collection or canel.-->
     <button class="createCollectionBtn">Create a Collection</button>
-    <div class="collectionBox">
-
+    
     <!--Image that show last card added to the collection.-->
+    <div class="collectionBox">
         <img class="collectionImg"></img>
         <p class="collectionName"></p>
         <button>Edit</button>

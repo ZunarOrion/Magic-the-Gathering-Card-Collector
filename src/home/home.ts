@@ -17,19 +17,19 @@ export function renderHomePage () {
 
             <div class="slides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="/images/Naturbild1.jpg">
+                <img src="/mainProject/public/images/Naturbild1.jpg">
                 <div class="text">Card nr 1</div>
             </div>
 
             <div class="slides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="/images/Naturbild2.jpg">
+                <img src="/mainProject/public/images/Naturbild1.jpg">
                 <div class="text">Card nr 2</div>
             </div>
 
             <div class="slides fade">
                 <div class="numbertext">3 / 3</div>
-                <img src="/images/Naturbild3.jpg">
+                <img src="/mainProject/public/images/Naturbild1.jpg">
                 <div class="text">Card nr 3</div>
             </div>
 
