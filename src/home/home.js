@@ -1,5 +1,6 @@
-import { recentlyViewedCards } from './recentlyViewedCard.js'
-import { renderBrowseCardPage } from '../browse/browseCard.js'
+import { recentlyViewedCards } from './recentlyViewedCard.js';
+import { renderBrowseCardPage } from '../browse/browseCard.js';
+import { renderCollectionPage } from '../collection/collection.js';
 
 export function renderHomePage () {
     document.querySelector("#pageContent").innerHTML = `
@@ -8,7 +9,7 @@ export function renderHomePage () {
             <button type="button" id="browseCardBtn">Browse Cards</button>
 
             <!--A button that sends the user to another html page for their collections.-->
-            <button type="button" class="myCollectionBtn">My Collection</button>
+            <button type="button" id="myCollectionBtn">My Collection</button>
         </div>
 
         <!--A slideshow that show the most recent cards the user has viewed, if not logged in it will show recently released sets.-->
@@ -47,12 +48,16 @@ export function renderHomePage () {
 recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
 
 const browseCardBtn = document.querySelector("#browseCardBtn");
-console.log('browseCardBtn:', browseCardBtn);
 if (browseCardBtn) {
-    console.log('Eventlistener has been added to browse!');
     browseCardBtn?.addEventListener("click", () => {
-        console.log('Browse is being clicked!');
         renderBrowseCardPage();
     });
+}
+
+const myCollectionBtn = document.querySelector("#myCollectionBtn");
+if (myCollectionBtn) {
+    myCollectionBtn.addEventListener("click", () => {
+        renderCollectionPage();
+    })
 }
 }

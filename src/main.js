@@ -1,11 +1,7 @@
 import { renderHomePage } from './home/home.js'
 // import './style.css'
 
-
-console.log('Script loaded');
-
 const app = document.querySelector('#app');
-console.log('app element:', app)
 
 if (!app) {
   console.error('#app not found in DOM');
@@ -29,8 +25,6 @@ if (!app) {
 
     <div id="pageContent"></div>
   `;
-
-  console.log('Layout injected');
   renderHomePage();
 }
 
