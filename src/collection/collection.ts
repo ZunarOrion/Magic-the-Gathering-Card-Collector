@@ -17,19 +17,19 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!--A button that opens a small window (createCollectionWindow) to write in an input, create collection or canel.-->
     <button class="createCollectionBtn">Create a Collection</button>
-    
+
     <!--Image that show last card added to the collection.-->
-    <div class="collectionBox">
-        <img class="collectionImg"></img>
-        <p class="collectionName"></p>
+    <div id="collectionBox">
+        <img id="collectionImg"></img>
+        <p id="collectionName"></p>
         <button>Edit</button>
         <button>Delete</button>
     </div>
 
-
-    <div class="createCollectionWindow">
-    <input></input>
-    <button>Create</button>
-    <button>Canel</button>
-    </div>
+    <!--A form input that sends new data into the db.-->
+    <form id="collectionCreator">
+        <input id="collectionInput" type="text"></input>
+        <button id="create">Create</button>
+        <button id="abort">Canel</button>
+    </form>
 `
