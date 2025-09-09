@@ -1,5 +1,5 @@
 export function renderCollectionPage () {
-    document.querySelector('#app').innerHTML = `
+    document.querySelector('#pageContent').innerHTML = `
         <header> 
             <!--Button which sends the user back to main page.-->
             <button type="button" class="logoBtn">Logo!</button>
