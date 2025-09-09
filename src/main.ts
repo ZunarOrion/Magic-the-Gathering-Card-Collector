@@ -1,4 +1,4 @@
-import { renderHomePage } from './home/home.ts'
+import { renderHomePage } from './home/home.js'
 import './style.css'
 
 
