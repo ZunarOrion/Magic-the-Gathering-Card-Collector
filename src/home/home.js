@@ -2,7 +2,7 @@ import { recentlyViewedCards } from './recentlyViewedCard.js'
 import { renderBrowseCardPage } from '../browse/browseCard.js'
 
 export function renderHomePage () {
-    document.querySelector("#pageContent")!.innerHTML = `
+    return document.querySelector("#pageContent").innerHTML = `
         <div class="middleRow">
             <!--A button that sends the user to another html page for exp; cards that are hot on the market.-->
             <button type="button" id="browseCardBtn">Browse Cards</button>
@@ -44,6 +44,8 @@ export function renderHomePage () {
         </div>  
     `;
 
+recentlyViewedCards(document.querySelector('#recentlyViewedCards'))
+
 const browseCardBtn = document.querySelector("#browseCardBtn");
 console.log('browseCardBtn:', browseCardBtn);
 if (browseCardBtn) {
@@ -53,7 +55,5 @@ if (browseCardBtn) {
         renderBrowseCardPage();
     });
 }
-
-recentlyViewedCards(document.querySelector<HTMLDivElement>('#recentlyViewedCards')!)
-
 }
+
