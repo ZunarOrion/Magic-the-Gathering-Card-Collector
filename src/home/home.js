@@ -2,7 +2,7 @@ import { recentlyViewedCards } from './recentlyViewedCard.js'
 import { renderBrowseCardPage } from '../browse/browseCard.js'
 
 export function renderHomePage () {
-    return document.querySelector("#pageContent").innerHTML = `
+    document.querySelector("#pageContent").innerHTML = `
         <div class="middleRow">
             <!--A button that sends the user to another html page for exp; cards that are hot on the market.-->
             <button type="button" id="browseCardBtn">Browse Cards</button>
@@ -23,13 +23,13 @@ export function renderHomePage () {
 
             <div class="slides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="/mainProject/public/images/Naturbild1.jpg">
+                <img src="/mainProject/public/images/Naturbild2.jpg">
                 <div class="text">Card nr 2</div>
             </div>
 
             <div class="slides fade">
                 <div class="numbertext">3 / 3</div>
-                <img src="/mainProject/public/images/Naturbild1.jpg">
+                <img src="/mainProject/public/images/Naturbild3.jpg">
                 <div class="text">Card nr 3</div>
             </div>
 
@@ -44,7 +44,7 @@ export function renderHomePage () {
         </div>  
     `;
 
-recentlyViewedCards(document.querySelector('#recentlyViewedCards'))
+recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
 
 const browseCardBtn = document.querySelector("#browseCardBtn");
 console.log('browseCardBtn:', browseCardBtn);

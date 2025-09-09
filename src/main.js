@@ -1,5 +1,5 @@
 import { renderHomePage } from './home/home.js'
-import './style.css'
+// import './style.css'
 
 
 console.log('Script loaded');
