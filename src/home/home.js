@@ -48,21 +48,15 @@ export function renderHomePage () {
 recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
 
 const browseCardBtn = document.querySelector("#browseCardBtn");
-console.log('browseCardBtn:', browseCardBtn);
 if (browseCardBtn) {
-    console.log('Eventlistener has been added to browse!');
     browseCardBtn?.addEventListener("click", () => {
-        console.log('Browse is being clicked!');
         renderBrowseCardPage();
     });
 }
 
 const myCollectionBtn = document.querySelector("#myCollectionBtn");
-console.log('myCollectionBtn:', myCollectionBtn);
 if (myCollectionBtn) {
-    console.log('Evenlistener has been added to collection!');
     myCollectionBtn.addEventListener("click", () => {
-        console.log('Collection is being clicked!');
         renderCollectionPage();
     })
 }
