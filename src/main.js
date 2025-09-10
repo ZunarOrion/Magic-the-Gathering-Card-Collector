@@ -1,5 +1,4 @@
-import { renderHomePage } from './home/home.js'
-// import './style.css'
+import { renderHomePage } from './home/home.js';
 
 const app = document.querySelector('#app');
 
@@ -26,6 +25,6 @@ if (!app) {
     <div id="pageContent"></div>
   `;
   renderHomePage();
-}
+};
 
 

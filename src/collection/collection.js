@@ -7,7 +7,6 @@ export function renderCollectionPage () {
         <h1>Collections</h1>
 
         <!--A form input that sends new data into the db.-->
-
         <form id="collectionCreator" action="">
             <input id="collectionInput" type="text"></input>
             <button type="submit" id="create">Create</button>
@@ -19,7 +18,8 @@ export function renderCollectionPage () {
             <p id="collectionName"></p>
             <button>Edit</button>
             <button>Delete</button>
-        </div>-->`
+        </div>-->
+        `;
 
         collectionCreate();
-}
+};

@@ -49,15 +49,15 @@ recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
 
 const browseCardBtn = document.querySelector("#browseCardBtn");
 if (browseCardBtn) {
-    browseCardBtn?.addEventListener("click", () => {
+    browseCardBtn.addEventListener("click", () => {
         renderBrowseCardPage();
     });
-}
+};
 
 const myCollectionBtn = document.querySelector("#myCollectionBtn");
 if (myCollectionBtn) {
     myCollectionBtn.addEventListener("click", () => {
         renderCollectionPage();
-    })
-}
-}
+    });
+};
+};

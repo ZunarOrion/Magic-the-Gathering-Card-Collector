@@ -1,7 +1,7 @@
 export default function () {
-    let collectionName = ""
+    let collectionName = "";
     const mySubmitButton = document.getElementById("create");
-    console.log(mySubmitButton)
+    console.log(mySubmitButton);
     mySubmitButton.addEventListener("click", async (event) => {
         event.preventDefault();
         collectionName = document.getElementById("collectionInput").value
@@ -15,5 +15,5 @@ export default function () {
         });
         console.log(result);
     });
-}
+};
 
