@@ -1,7 +1,6 @@
 import collectionCreate from "./collectionCreate.js"
 
 export function renderCollectionPage () {
-    console.log("rendered collection page")
     document.querySelector('#pageContent').innerHTML = `
         <!--A function that creates boxes with information on to the page.-->
         <h1>Collections</h1>
