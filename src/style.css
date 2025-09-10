@@ -12,17 +12,17 @@ header {
   width: auto;
   background-color: rgb(1, 100, 40);
 }
-.logoBtn {
+#logoBtn {
   margin-right: 16rem;
   width: 10rem;
 }
 .searchBar {
   width: 40rem;
 }
-.advancedSearchBtn {
+#advancedSearchBtn {
   margin-left: 13.5rem;
 }
-.logInBtn {
+#logInBtn {
   width: 100px;
   margin-left: 3rem;
 }
