@@ -9,16 +9,16 @@ if (!app) {
     <header> 
       <!--Button which sends the user back to main page.-->
       <!--Addeventlistener to buttons-->
-      <button type="button" class="logoBtn">Logo!</button>
+      <button type="button" id="logoBtn">Logo!</button>
 
       <!--A searchbar that will show relavant responses to what is in the input field.-->
       <input type="text" placeholder="Search Card..." class="searchBar"></input>
 
       <!--A button that sends the user to another html page for advanced searches.-->
-      <button type="button" class="advancedSearchBtn">Advanced Search</button>
+      <button type="button" id="advancedSearchBtn">Advanced Search</button>
 
       <!--A button that sends the user to another html page for logging in.-->
-      <button type="button" class="logInBtn">Login</button>
+      <button type="button" id="logInBtn">Login</button>
       
     </header>
 

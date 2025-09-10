@@ -1,6 +1,8 @@
-import { recentlyViewedCards } from './recentlyViewedCard.js';
+import { renderAdvancedSearchPage } from '../advancedSearch/advancedSearch.js';
+import { renderLogInPage } from '../logIn/logIn.js';
 import { renderBrowseCardPage } from '../browse/browseCard.js';
 import { renderCollectionPage } from '../collection/collection.js';
+import { recentlyViewedCards } from './recentlyViewedCard.js';
 
 export function renderHomePage () {
     document.querySelector("#pageContent").innerHTML = `
@@ -45,7 +47,26 @@ export function renderHomePage () {
         </div>  
     `;
 
-recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
+const logoBtn = document.querySelector("#logoBtn");
+if (logoBtn) {
+    logoBtn.addEventListener("click", () => {
+        renderHomePage();
+    });
+};
+
+const advancedSearchBtn = document.querySelector("#advancedSearchBtn");
+if (advancedSearchBtn) {
+    advancedSearchBtn.addEventListener("click", () => {
+        renderAdvancedSearchPage();
+    });
+};
+
+const logInBtn = document.querySelector("#logInBtn");
+if (logInBtn) {
+    logInBtn.addEventListener("click", () => {
+        renderLogInPage();
+    });
+};
 
 const browseCardBtn = document.querySelector("#browseCardBtn");
 if (browseCardBtn) {
@@ -60,4 +81,6 @@ if (myCollectionBtn) {
         renderCollectionPage();
     });
 };
+
+recentlyViewedCards(document.querySelector('#recentlyViewedCards'));
 };
