@@ -12,9 +12,17 @@
 //     expect(validate({"blogTitle": 111, "blogText": 111})).toBe(false)
 // });
 
-import { expect, test } from 'vitest';
-import { collectionCreate } from './collection/collectionCreate.js'
+// import { expect, test } from 'vitest';
+// import { collectionCreate } from './collection/collectionCreate.js'
 
-test("test collectionCreate formData", () => {
-    expect(typeof collectionCreate("collectionName")).toBe(String)
+// test("test collectionCreate formData", () => {
+//     expect(typeof collectionCreate("collectionName")).toBe(String)
+// });
+
+
+import { expect, test } from "vitest";
+import collectionCreate from "./collection/collectionCreate";
+
+test("", () => {
+    expect(typeof collectionCreate("collectionName")).toBe(string);
 });
