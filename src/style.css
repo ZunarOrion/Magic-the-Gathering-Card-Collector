@@ -42,8 +42,24 @@ header {
   height: 10rem;
 }
 
-
-
+/* Collection page */
+#collection-Header {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+#collectionCreator {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#collectionBox {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+}
 
 
 

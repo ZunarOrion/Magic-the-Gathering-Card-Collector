@@ -1,7 +1,8 @@
+import { renderCollectionPage } from "./collection";
+
 export default function () {
     let collectionName = "";
     const mySubmitButton = document.getElementById("create");
-    console.log(mySubmitButton);
     mySubmitButton.addEventListener("click", async (event) => {
         event.preventDefault();
         collectionName = document.getElementById("collectionInput").value
@@ -11,9 +12,9 @@ export default function () {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({Collection: collectionName})
+            body: JSON.stringify({ collection: collectionName })
         });
+        renderCollectionPage();
         console.log(result);
     });
 };
-

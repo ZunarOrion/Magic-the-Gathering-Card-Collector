@@ -8,3 +8,4 @@ export function renderBrowseCardPage () {
     </div>
 `;
 };
+// https://scryfall.com/docs/api
