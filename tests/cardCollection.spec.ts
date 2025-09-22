@@ -8,14 +8,15 @@ test.describe('Collections', () => {
     test('Getting into collection', async ({ page }) => {
         const collectionButton = page.locator('#myCollectionBtn').first();
         await collectionButton.click();
+        await expect(page.locator('h1')).toHaveText('Collections');
     });
 
-    // test('Add a new collection', async ({ page }) => {
-    //     const name = 'Playwright test collection';
-
-    //     await page.fill('#collectionInput', name);
-    //     await page.click('#create');
-
-    //     await expect(page.locator('#collectionBox')).toContainText(name);
-    // });
+    test('Create a collection', async ({ page }) => {
+        const collectionButton = page.locator('#myCollectionBtn').first();
+        const collectionName = `Test Collection ${Date.now()}`;
+        await collectionButton.click();
+        await page.fill('#collectionInput', collectionName);
+        await page.click('button[type="submit"]');
+        await expect(page.locator('#collectionBox').getByText(collectionName)).toBeVisible();
+    });
 });

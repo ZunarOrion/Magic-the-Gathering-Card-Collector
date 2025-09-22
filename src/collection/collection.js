@@ -4,9 +4,7 @@ import collectionEdit from "./collectionEdit.js";
 
 export async function renderCollectionPage () {
     document.querySelector('#pageContent').innerHTML = `
-        <!--A function that creates boxes with information on to the page.-->
         <h1 id="collection-Header">Collections</h1>
-        <!--A form input that sends new data into the db.-->
         <form method="post" id="collectionCreator" action="">
             <input id="collectionInput" type="text"></input>
             <button type="submit" id="create">Create</button>

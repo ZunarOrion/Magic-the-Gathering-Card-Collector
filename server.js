@@ -38,9 +38,26 @@ async function run(data) {
 
 app.post("/form", async (req, res) => {
     const data = req.body;
-    console.log(req.body);
-    await run(data);
+
+    try {
+        await client.connect();
+        const db = client.db("test");
+        const collection = db.collection("dummy");
+        const result = await collection.insertOne(data);
+
+        res.status(201).json({
+            _id: result.insertedId,
+            ...data
+        });
+    } catch (error) {
+        console.error("Error inserting collection:", error);
+        res.status(500).json({ error: "Failed to create collection" });
+    } finally {
+        await client.close();
+    };
 });
+//     console.log(req.body);
+//     await run(data);
 
 app.get("/form", async (req, res) => {
     await client.connect();
