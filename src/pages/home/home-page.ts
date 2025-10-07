@@ -1,9 +1,10 @@
+import { renderCardSearchResultsPage } from '../card-search-results-page.js';
+import { cardSearcher } from './cardSearcher.js';
 import { renderAdvancedSearchPage } from '../advancedSearch-page.js';
 import { renderLogInPage } from '../logIn-page.js';
 import { renderBrowseCardPage } from '../browseCard-page.js';
 import { renderCollectionPage } from '../collection-page.js';
 import { recentlyViewedCards } from './recentlyViewedCard.js';
-import { cardSearcher } from './cardSearcher.js';
 
 export function renderHomePage () {
     const pageContent = document.querySelector("#page-content");
@@ -47,63 +48,57 @@ export function renderHomePage () {
             </div>  
         `;
     
-    const logoBtn = document.querySelector("#logo-btn");
-    if (logoBtn) {
-        logoBtn.addEventListener("click", () => {
-            renderHomePage();
-        });
-    };
+        const logoBtn = document.querySelector("#logo-btn");
+        if (logoBtn) {
+            logoBtn.addEventListener("click", () => {
+                renderHomePage();
+            });
+        };
     
-    const cardSearchbtn = document.querySelector("card-search-btn");
-        if (cardSearchbtn) {
-            cardSearchbtn.addEventListener("click", async () => {
-                // hämta data
-                const searchResult = await cardSearcher(data);
-                // rendera sida med data eller ingen data
-                // await data 
-                // const content = data ? data : ingen data 
-                // card search page (content)
-                // const data = await cardSearcher();
-                // renderCardSearchResultsPage(data);
-                // vid klick sök på kort sen rendrera om kortet hittades eller ej
-                // datan som behövs är cards
+        const cardSearchInput = document.querySelector("#card-search-input") as HTMLInputElement;
+        const cardSearchbtn = document.querySelector("#card-search-btn") as HTMLButtonElement;
+        if (cardSearchbtn && cardSearchInput) {
+            cardSearchbtn.addEventListener("click", async () =>{
+                const query = cardSearchInput.value.trim();
+                const searchResult = await cardSearcher(query);
+
+                if (searchResult) {
+                    renderCardSearchResultsPage(searchResult);
+                };
             });
         };
 
-    const advancedSearchBtn = document.querySelector("#advanced-search-btn");
-    if (advancedSearchBtn) {
-        advancedSearchBtn.addEventListener("click", () => {
-            renderAdvancedSearchPage();
-        });
-    };
+        const advancedSearchBtn = document.querySelector("#advanced-search-btn");
+        if (advancedSearchBtn) {
+            advancedSearchBtn.addEventListener("click", () => {
+                renderAdvancedSearchPage();
+            });
+        };
     
-    const logInBtn = document.querySelector("#login-btn");
-    if (logInBtn) {
-        logInBtn.addEventListener("click", () => {
-            renderLogInPage();
-        });
-    };
+        const logInBtn = document.querySelector("#login-btn");
+        if (logInBtn) {
+            logInBtn.addEventListener("click", () => {
+                renderLogInPage();
+            });
+        };
     
-    const browseCardBtn = document.querySelector("#browse-card-btn");
-    if (browseCardBtn) {
-        browseCardBtn.addEventListener("click", () => {
-            renderBrowseCardPage();
-        });
-    } else {
-        console.log("not found.")
-    }
+        const browseCardBtn = document.querySelector("#browse-card-btn");
+        if (browseCardBtn) {
+            browseCardBtn.addEventListener("click", () => {
+                renderBrowseCardPage();
+            });
+        };
     
+        const myCollectionBtn = document.querySelector("#my-collection-btn");
+        if (myCollectionBtn) {
+            myCollectionBtn.addEventListener("click", () => {
+                renderCollectionPage();
+            });
+        };
     
-    const myCollectionBtn = document.querySelector("#my-collection-btn");
-    if (myCollectionBtn) {
-        myCollectionBtn.addEventListener("click", () => {
-            renderCollectionPage();
-        });
-    };
-    
-    const recentlyViewedCard = document.querySelector("#recently-viewed-cards") as HTMLElement;
-    if (recentlyViewedCard) {
-        recentlyViewedCards(recentlyViewedCard);
-    };
+        const recentlyViewedCard = document.querySelector("#recently-viewed-cards") as HTMLElement;
+        if (recentlyViewedCard) {
+            recentlyViewedCards(recentlyViewedCard);
+        };
     };
 };

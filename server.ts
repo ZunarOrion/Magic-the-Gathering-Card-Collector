@@ -4,11 +4,11 @@ import { fileURLToPath } from "url";
 import path from "path";
 import { MongoClient, ObjectId } from "mongodb";
 
-const mtg = "test";
-const mtgCollections = "dummy";
+const mtg = "mtg";
+const mtgCollections = "mtgCollections";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const isProduction = process.env.NODE_ENV === "production";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
-const uri = "mongodb://127.0.0.1:27017";
+const uri = process.env.MONGO_DB_CONNECTION_STRING as string;
 const client = new MongoClient(uri);
 await client.connect();
 

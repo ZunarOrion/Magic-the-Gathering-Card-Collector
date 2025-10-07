@@ -17,7 +17,7 @@ export async function renderCollectionPage () {
             const collectionPosts = await collectionResponse.json();
             
             const collectionsDiv = document.getElementById("collection-box") as HTMLElement;
-            collectionsDiv.innerHTML = collectionPosts.map((post) => `
+            collectionsDiv.innerHTML = collectionPosts.map((post: any) => `
                 <div id="collection-item" data-id="${post._id}">
                     <label id="collection-name">${post.collection}</label>
                     <button class="edit-btn" data-id="${post._id}">Edit</button>
@@ -43,7 +43,6 @@ export function collectionCreate () {
             event.preventDefault();
             collectionName = (document.getElementById("collection-input") as HTMLInputElement).value
             try {
-                console.log(collectionName);
                 const result = await fetch("http://127.0.0.1:3000/form", {
                     method: "POST",
                     headers: {
@@ -52,7 +51,7 @@ export function collectionCreate () {
                     body: JSON.stringify({ collection: collectionName })
                 });
                 const newItem = await result.json();
-                console.log("Created:", newItem);
+                console.log("Created:", collectionName ,newItem);
                 if (!result.ok) {
                     throw new Error(`POST failed: ${result.status}`);
                 };
@@ -68,6 +67,7 @@ export function collectionCreate () {
 export function collectionEdit () {
     const editButton = document.querySelectorAll(".edit-btn");
     if (editButton) {
+        let collectionName = document.getElementById("collection-name");
         editButton.forEach((btn) => {
             btn.addEventListener("click", async () => {
                 const id = btn.getAttribute("data-id");
@@ -80,7 +80,7 @@ export function collectionEdit () {
                         },
                         body: JSON.stringify({ collection: newName })
                     });
-                    console.log(`Collection's new name: ${newName}`);
+                    console.log(`${collectionName}'s new name: ${newName}`);
                     if (res.ok) {
                         renderCollectionPage();
                     };

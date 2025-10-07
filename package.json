@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx server.ts",
+    "dev": "tsx --env-file=.env server.ts",
     "prod": "set NODE_ENV=production&& node server.js",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -14,7 +14,7 @@
     "@playwright/test": "^1.55.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.5.0",
+    "@types/node": "^24.7.0",
     "typescript": "^6.0.0-dev.20250825",
     "vite": "^7.1.2",
     "vitest": "^3.2.4"

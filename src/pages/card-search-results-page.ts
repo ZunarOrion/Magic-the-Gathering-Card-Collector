@@ -1,19 +1,42 @@
-import { renderCardBox } from "../components/CardBox";
+import { renderCardBox } from "../components/CardBox.ts";
 
-// funktioner 
+export async function cardSearcher(q: string) {
+    const url = `https://api.scryfall.com/cards/search?q=${q}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        };
 
-export async function renderCardSearchResultsPage (data?: any) {
+        const result = await response.json();
+        console.log(result.data.length);
+        return result.data;
+    } catch (error) {
+        console.error((error as Error).message);
+        return null;
+    };
+}; 
+
+export async function renderCardSearchResultsPage (data?: any[]) {
     let cardName = "";
-    const pageContent = document.getElementById("#card-box");
+    const pageContent = document.getElementById("#page-content");
     if (pageContent) {
-        if (data)
-            data.map((Cards: any[]) => (
-                renderCardBox(Cards)
-            ))
+
+        if (!data) return;
+
         pageContent.innerHTML = `
         <h1 id="search-card-title">Results from ${cardName}</h1>
 
         <div id="card-box"></div>
         `;
+
+        if (data && data.length > 0) {
+            renderCardBox(data);
+        } else {
+            const cardBox = document.getElementById("card-box");
+            if (cardBox) {
+                cardBox.innerHTML = "<p>No results found.</p>";
+            };
+        };
     };
 };

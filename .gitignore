@@ -34,3 +34,4 @@ dist-ssr
 
 # Experimental files
 labfile.ts
+.env

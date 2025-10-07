@@ -1,6 +1,5 @@
 import { renderCardBox } from "../components/CardBox";
 
-// https://scryfall.com/docs/api
 export async function browseCardSearcher() {
     const url = `https://api.scryfall.com/cards/random`;
     try {
@@ -18,7 +17,7 @@ export async function browseCardSearcher() {
     };
 };
 
-export async function renderBrowseCardPage () {
+export async function renderBrowseCardPage (data?: any[]) {
     const pageContent = document.getElementById("#page-content");
     if (pageContent) {
         pageContent.innerHTML = `
@@ -28,11 +27,13 @@ export async function renderBrowseCardPage () {
         `;
 
         try {
-            const cards = await browseCardSearcher();
-            if ( cards && cards.length > 0) {
-                renderCardBox(cards.slice(0, 9));
+            if (data && data.length > 0) {
+                renderCardBox(data.slice(0, 9));
             } else {
-                console.warn("No cards found.");
+                const cardBox = document.getElementById("card-box");
+                if (cardBox) {
+                    cardBox.innerHTML = "<p>No cards were able to be found.</p>"
+                }
             };
         } catch (err) {
             console.error("Unexpected error:", err);
