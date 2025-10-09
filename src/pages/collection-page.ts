@@ -18,8 +18,8 @@ export async function renderCollectionPage () {
             
             const collectionsDiv = document.getElementById("collection-box") as HTMLElement;
             collectionsDiv.innerHTML = collectionPosts.map((post: any) => `
-                <div id="collection-item" data-id="${post._id}">
-                    <label id="collection-name">${post.collection}</label>
+                <div class="collection-item" data-id="${post._id}">
+                    <label class="collection-name">${post.collection}</label>
                     <button class="edit-btn" data-id="${post._id}">Edit</button>
                     <button class=delete-btn data-id="${post._id}">Delete</button>
                 </div>
