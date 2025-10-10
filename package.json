@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "tsx server.ts",
     "prod": "cross-env NODE_ENV=production node server.js",
-    "build": "tsc && vite build",
+    "buildwithtscheck": "tsc && vite build",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr server.ts --outDir dist/server",
     "preview": "vite preview",
+    "start": "NODE_ENV=production node dist/server/server.js",
+    "startlocal": "cross-env NODE_ENV=production node dist/server/server.js",
     "test": "vitest --watch=false&& npx playwright test",
     "playwrightServer": "cross-env NODE_ENV=test tsx server.ts"
   },

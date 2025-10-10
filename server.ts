@@ -16,6 +16,8 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const __distpath = path.dirname(__dirname);
+const __distClientPath = path.join(__distpath, "client");
 
 app.use(express.json());
 
@@ -93,10 +95,9 @@ if (!isProduction) {
     });
     app.use(vite.middlewares);
 } else {
-    const distPath = path.join(__dirname, "dist");
-    app.use(express.static(distPath))
+    app.use(express.static(__distClientPath));
     app.get("/*splat", (_req: express.Request, res: express.Response) => {
-        res.sendFile(path.join(distPath, "index.html"));
+        res.sendFile(path.join(__distClientPath, "index.html"));
     });
 }
 
