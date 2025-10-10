@@ -11,7 +11,7 @@ const mtg = "mtg";
 const mtgCollections = "mtgCollections";
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const isProduction = process.env.NODE_ENV === "production";
 
 const __filename = fileURLToPath(import.meta.url);
