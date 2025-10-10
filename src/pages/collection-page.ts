@@ -67,7 +67,7 @@ export function collectionCreate () {
 export function collectionEdit () {
     const editButton = document.querySelectorAll(".edit-btn");
     if (editButton) {
-        let collectionName = document.getElementById("collection-name");
+        let collectionName = document.querySelector<HTMLLabelElement>(".collection-name")?.innerText;
         editButton.forEach((btn) => {
             btn.addEventListener("click", async () => {
                 const id = btn.getAttribute("data-id");
@@ -93,10 +93,11 @@ export function collectionEdit () {
 export function collectionDelete () {
     const deleteButton = document.querySelectorAll(".delete-btn");
     if (deleteButton) {
+        let collectionName = document.querySelector<HTMLLabelElement>(".collection-name")?.innerText;
         deleteButton.forEach((btn) => {
             btn.addEventListener("click", async () => {
                 const id = btn.getAttribute("data-id");
-                console.log(`Deleted: ${id}`);
+                console.log(`Deleted: ${collectionName}`);
                 const res = await fetch(`http://localhost:3000/form/${id}`, {
                     method: "DELETE",
                 });
