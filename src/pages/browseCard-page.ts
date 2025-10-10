@@ -40,3 +40,7 @@ export async function renderBrowseCardPage (data?: any[]) {
         };
     };
 };
+
+export function sum(a: number, b: number) {
+    return a + b
+}

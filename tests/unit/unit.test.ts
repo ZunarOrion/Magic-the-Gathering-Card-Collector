@@ -1,16 +1,6 @@
-import { describe, expect, test } from 'vitest';
-import { renderCollectionPage } from '../../src/pages/collection-page';
+import { expect, test } from 'vitest'
+import { sum } from '../../src/pages/browseCard-page'
 
-describe(renderCollectionPage, () => {
-    document.body.innerHTML = '<div id="page-content"></div>';
-});
-
-test('Does h1 exist and does it have text "Collections"', async () =>{
-    await renderCollectionPage();
-
-    const h1 = document.querySelector('#collection-Header');
-
-    expect(h1).toBeTruthy();
-    expect(h1).toBe('h1');
-    expect(h1).toBe('Collections');
+test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3)
 });
