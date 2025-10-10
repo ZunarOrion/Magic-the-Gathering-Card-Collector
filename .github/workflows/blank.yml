@@ -14,11 +14,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
-
     steps:
     - uses: actions/checkout@v4
     - name: Run all scripts
-    - run: | 
+      run: | 
         npm install
         npx playwright install --with-deps
         npm run test
