@@ -24,7 +24,7 @@ test.describe('Collections', () => {
         page.on('dialog', dialog => dialog.accept(editText));
         await page.locator('.collection-item >> nth=0 >> .edit-btn').click();
         await expect(page.locator('.collection-name')).toHaveText(editText);
-        
+
         //Deleteing a collection
         await page.locator('.collection-item >> nth=0 >> .delete-btn').click();
         await expect(page.locator('.collection-item')).toHaveCount(0);

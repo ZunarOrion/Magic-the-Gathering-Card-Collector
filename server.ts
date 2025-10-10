@@ -3,6 +3,9 @@ import { fileURLToPath } from "url";
 import path from "path";
 import { MongoClient, ObjectId } from "mongodb";
 import { MongoMemoryServer } from 'mongodb-memory-server';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const mtg = "mtg";
 const mtgCollections = "mtgCollections";
@@ -16,17 +19,23 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 
-//om inte .env satt testa med lokal server
-const isTesting = true;
+let isTesting = process.env.NODE_ENV === "test";
 let uri;
 if (isTesting) {
-    const mongod = await MongoMemoryServer.create();
+    const mongod = await MongoMemoryServer.create({
+        instance: {
+            dbName: "mtg"
+        }
+    });
     uri = mongod.getUri();
 } else {
     uri = process.env.MONGO_DB_CONNECTION_STRING as string;
 };
 const client = new MongoClient(uri);
 await client.connect();
+
+
+
 
 app.post("/form", async (req: express.Request, res: express.Response) => {
     const data = req.body;
@@ -80,6 +89,7 @@ if (!isProduction) {
     vite = await createViteServer({
         server: { middlewareMode: true },
         appType: "spa",
+        root: __dirname,
     });
     app.use(vite.middlewares);
 } else {

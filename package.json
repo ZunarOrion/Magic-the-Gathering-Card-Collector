@@ -4,24 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx --env-file=.env server.ts",
-    "prod": "set NODE_ENV=production&& node server.js",
+    "dev": "tsx server.ts",
+    "prod": "cross-env NODE_ENV=production node server.js",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest --watch=false && npx playwright test",
-    "playwrightServer": "set NODE_ENV=test&& tsx server.ts"
-    
+    "test": "vitest --watch=false&& npx playwright test",
+    "playwrightServer": "cross-env NODE_ENV=test tsx server.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/express": "^5.0.3",
     "@types/node": "^24.7.0",
+    "cross-env": "^10.1.0",
     "mongodb-memory-server": "^10.2.3",
     "typescript": "^6.0.0-dev.20250825",
     "vite": "^7.1.2",
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongodb": "^6.19.0",
     "tsx": "^4.20.6"
