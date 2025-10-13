@@ -19,6 +19,7 @@ const __dirname = path.dirname(__filename);
 const __distpath = path.dirname(__dirname);
 const __distClientPath = path.join(__distpath, "client");
 
+
 app.use(express.json());
 
 let isTesting = process.env.NODE_ENV === "test";
