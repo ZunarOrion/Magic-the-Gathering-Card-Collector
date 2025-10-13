@@ -12,7 +12,7 @@ export async function renderCollectionPage () {
                 
             try {
             const collectionResponse = await fetch (
-                "https://magic-the-gathering-card-collector.onrender.com/form"
+                "/form"
             );
             const collectionPosts = await collectionResponse.json();
             
@@ -43,7 +43,7 @@ export function collectionCreate () {
             event.preventDefault();
             collectionName = (document.getElementById("collection-input") as HTMLInputElement).value
             try {
-                const result = await fetch("https://magic-the-gathering-card-collector.onrender.com/form", {
+                const result = await fetch("/form", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -73,7 +73,7 @@ export function collectionEdit () {
                 const id = btn.getAttribute("data-id");
                 const newName = prompt("Edit collection name:");
                 if (newName) {
-                    const res = await fetch(`https://magic-the-gathering-card-collector.onrender.com/form/${id}`, {
+                    const res = await fetch(`/form/${id}`, {
                         method: "PUT",
                         headers: {
                         "Content-Type": "application/json"
@@ -98,7 +98,7 @@ export function collectionDelete () {
             btn.addEventListener("click", async () => {
                 const id = btn.getAttribute("data-id");
                 console.log(`Deleted: ${collectionName}`);
-                const res = await fetch(`https://magic-the-gathering-card-collector.onrender.com/form/${id}`, {
+                const res = await fetch(`/form/${id}`, {
                     method: "DELETE",
                 });
                 if (res.ok) {
