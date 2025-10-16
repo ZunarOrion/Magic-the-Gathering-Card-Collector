@@ -2,7 +2,7 @@ export async function renderCollectionPage () {
     const pageContent = document.querySelector('#page-content');
     if (pageContent) {
         pageContent.innerHTML = `
-            <h1 id="collection-Header">Collections</h1>
+            <h1 id="collection-title">Collections</h1>
             <form method="post" id="collection-creator" action="">
                 <input id="collection-input" type="text"></input>
                 <button type="submit" id="create">Create</button>
@@ -17,11 +17,12 @@ export async function renderCollectionPage () {
             const collectionPosts = await collectionResponse.json();
             
             const collectionsDiv = document.getElementById("collection-box") as HTMLElement;
-            collectionsDiv.innerHTML = collectionPosts.map((post: any) => `
-                <div class="collection-item" data-id="${post._id}">
-                    <label class="collection-name">${post.collection}</label>
-                    <button class="edit-btn" data-id="${post._id}">Edit</button>
-                    <button class=delete-btn data-id="${post._id}">Delete</button>
+            collectionsDiv.innerHTML = collectionPosts.map((data: any) => `
+                <div class="collection-item" data-id="${data._id}">
+                    <img class="collection-image" src="/images/Magic-Card-Back.jpg"></img>
+                    <label class="collection-name">${data.collection}</label>
+                    <button class="edit-btn" data-id="${data._id}">Edit</button>
+                    <button class="delete-btn" data-id="${data._id}">Delete</button>
                 </div>
                 `).join("");
     

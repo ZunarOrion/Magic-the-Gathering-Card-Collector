@@ -10,9 +10,11 @@ if (!app) {
     <header> 
       <button type="button" id="logo-btn">Logo!</button>
 
-      <input type="text" id="card-search-input" placeholder="Search Card..."></input>
-      <button type="button" id="card-search-btn">Search</button>
-    </header>
+      <div class="search-container">
+        <input type="text" id="card-search-input" placeholder="Search Card..."></input>
+        <button type="button" id="card-search-btn">Search</button>
+      </div>
+        </header>
 
     <div id="page-content"></div>
   `;

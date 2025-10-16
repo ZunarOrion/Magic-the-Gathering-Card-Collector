@@ -6,21 +6,57 @@ body {
 }
 
 /*  Navbar  */
-/*----------------------------------------------Make navbar look better!-------------------------------*/
 header {
   display: flex;
-  justify-content: right;
-  height: 2rem;
-  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: relative;
+  height: 60px;
   background-color: rgb(1, 100, 40);
 }
 #logo-btn {
-  margin-right: 16rem;
-  width: 10rem;
+  position: relative;
+  z-index: 2;
+  padding: 6px 12px;
+}
+#logo-btn:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+.search-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
 }
 #card-search-input {
-  width: 40rem;
+  padding: 6px 10px;
+  font-size: 16px;
+  width: 400px;
 }
+#card-search-btn {
+  margin-left: 5px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+#card-search-btn:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+
+
+
+/*  Card search page  */
+#search-card-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+
+
+/*  Home page  */
 .middle-row {
   display: flex;
   justify-content: center;
@@ -28,22 +64,14 @@ header {
   height: 10rem;
   gap: 10rem;
 }
-#browse-card-btn {
-  width: 10rem;
-  height: 10rem;
-}
+#browse-card-btn,
 #my-collections-btn {
   width: 10rem;
   height: 10rem;
 }
-
-
-
-/*  Card search page*/
-#search-card-title {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 2rem;
+#browse-card-btn:hover,
+#my-collections-btn:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
 }
 
 
@@ -90,12 +118,14 @@ header {
 
 
 
-
 /*  Collection page  */
-#collection-Header {
+#collection-title {
   display: grid;
   align-content: center;
   justify-content: center;
+}
+#create:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
 }
 #collection-creator {
   display: flex;
@@ -104,12 +134,21 @@ header {
 }
 #collection-box {
   display: grid;
-  align-content: center;
-  justify-content: center;
-  padding: 2rem;
-  gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
+.collection-image {
+  width: 50%;
+  height: auto;
+  border-radius: 4px;
+}
+.delete-btn:hover,
+.edit-btn:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
 
 
 
