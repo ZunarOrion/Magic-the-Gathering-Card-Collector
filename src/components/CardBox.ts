@@ -1,4 +1,4 @@
-// renderCardBox
+// A function that creates a seperate html structure for each object passed for the API.
 export function renderCardBox (cards: any[]) {
     const cardBox = document.getElementById("card-box") as HTMLDivElement;
     cardBox.innerHTML = "";
@@ -9,6 +9,7 @@ export function renderCardBox (cards: any[]) {
 
     cards.forEach(card => {
         const cardItem = document.createElement("div");
+        cardItem.classList.add("card-item");
 
         const cardImg = document.createElement("img");
         cardImg.src = card.image_uris?.normal || "";

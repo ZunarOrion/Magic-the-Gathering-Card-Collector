@@ -1,8 +1,4 @@
-import { renderCardSearchResultsPage } from '../card-search-results-page.js';
-import { cardSearcher } from './cardSearcher.js';
-import { renderAdvancedSearchPage } from '../advancedSearch-page.js';
-import { renderLogInPage } from '../logIn-page.js';
-import { renderBrowseCardPage } from '../browseCard-page.js';
+import { browseCardSearcher, renderBrowseCardPage } from '../browseCard-page.js';
 import { renderCollectionPage } from '../collection-page.js';
 import { recentlyViewedCards } from './recentlyViewedCard.js';
 
@@ -13,7 +9,7 @@ export function renderHomePage () {
             <div class="middle-row">
                 <button type="button" id="browse-card-btn">Browse Cards</button>
     
-                <button type="button" id="my-collection-btn">My Collection</button>
+                <button type="button" id="my-collections-btn">My Collections</button>
             </div>
     
             <div id="recently-viewed-cards">
@@ -47,55 +43,25 @@ export function renderHomePage () {
             </div>
             </div>  
         `;
-    
-        const logoBtn = document.querySelector("#logo-btn");
-        if (logoBtn) {
-            logoBtn.addEventListener("click", () => {
-                renderHomePage();
-            });
-        };
-    
-        const cardSearchInput = document.querySelector("#card-search-input") as HTMLInputElement;
-        const cardSearchbtn = document.querySelector("#card-search-btn") as HTMLButtonElement;
-        if (cardSearchbtn && cardSearchInput) {
-            cardSearchbtn.addEventListener("click", async () =>{
-                const query = cardSearchInput.value.trim();
-                const searchResult = await cardSearcher(query);
 
-                if (searchResult) {
-                    renderCardSearchResultsPage(searchResult);
-                };
-            });
-        };
-
-        const advancedSearchBtn = document.querySelector("#advanced-search-btn");
-        if (advancedSearchBtn) {
-            advancedSearchBtn.addEventListener("click", () => {
-                renderAdvancedSearchPage();
-            });
-        };
-    
-        const logInBtn = document.querySelector("#login-btn");
-        if (logInBtn) {
-            logInBtn.addEventListener("click", () => {
-                renderLogInPage();
-            });
-        };
-    
+        //An eventlistener for when navigating into the browse card page
         const browseCardBtn = document.querySelector("#browse-card-btn");
         if (browseCardBtn) {
-            browseCardBtn.addEventListener("click", () => {
-                renderBrowseCardPage();
+            browseCardBtn.addEventListener("click", async () => {
+                const cards = await browseCardSearcher();
+                renderBrowseCardPage(cards);
             });
         };
     
-        const myCollectionBtn = document.querySelector("#my-collection-btn");
-        if (myCollectionBtn) {
-            myCollectionBtn.addEventListener("click", () => {
+        //An eventlistener for when navigating into the my collections page
+        const myCollectionsBtn = document.querySelector("#my-collections-btn");
+        if (myCollectionsBtn) {
+            myCollectionsBtn.addEventListener("click", () => {
                 renderCollectionPage();
             });
         };
     
+        //A slideshow presenting a few cards onto the front page.
         const recentlyViewedCard = document.querySelector("#recently-viewed-cards") as HTMLElement;
         if (recentlyViewedCard) {
             recentlyViewedCards(recentlyViewedCard);

@@ -19,7 +19,6 @@ const __dirname = path.dirname(__filename);
 const __distpath = path.dirname(__dirname);
 const __distClientPath = path.join(__distpath, "client");
 
-
 app.use(express.json());
 
 let isTesting = process.env.NODE_ENV === "test";
@@ -63,7 +62,7 @@ app.get("/form", async (_req: express.Request, res: express.Response) => {
     const collection = db.collection(mtgCollections);
     const result = await collection.find().toArray();
     res.json(result);
-})
+});
 
 app.delete("/form/:id", async (req: express.Request, res: express.Response) => {
         const db = client.db(mtg);
@@ -100,7 +99,7 @@ if (!isProduction) {
     app.get("/*splat", (_req: express.Request, res: express.Response) => {
         res.sendFile(path.join(__distClientPath, "index.html"));
     });
-}
+};
 
 app.listen(port, () => {
     console.log(`running ${isProduction ? "PROD" : "DEV"} server at http://localhost:${port}`);

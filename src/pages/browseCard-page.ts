@@ -1,24 +1,28 @@
 import { renderCardBox } from "../components/CardBox";
 
-export async function browseCardSearcher() {
+//A function for fetching 9 random cards into an array from the Scryfall API.
+export async function browseCardSearcher(count: number = 9): Promise<any[]> {
     const url = `https://api.scryfall.com/cards/random`;
+    const cards = [];
     try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+        for (let i = 0; i < count; i++) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            };
+            const card = await response.json();
+            cards.push(card);
         };
-
-        const result = await response.json();
-        console.log(result.data.length);
-        return result.data;
+        return cards;
     } catch (error) {
         console.error((error as Error).message);
-        return null;
+        return [];
     };
 };
 
+//A function for slicing the array into 9 pieces to be used in the renderCardBox function.
 export async function renderBrowseCardPage (data?: any[]) {
-    const pageContent = document.getElementById("#page-content");
+    const pageContent = document.getElementById("page-content");
     if (pageContent) {
         pageContent.innerHTML = `
         <h1 id="browse-card-title">Browse Cards</h1>
@@ -42,6 +46,34 @@ export async function renderBrowseCardPage (data?: any[]) {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Put in to make unit test pass when running test and pushing to github.
 export function sum(a: number, b: number) {
     return a + b
 }

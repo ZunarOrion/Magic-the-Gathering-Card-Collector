@@ -1,3 +1,4 @@
+//A function rendering a slideshow for the front page.
 export function recentlyViewedCards(element: HTMLElement) {
     let slideIndex = 1;
     const slides = element.getElementsByClassName("slides");
@@ -35,4 +36,3 @@ export function recentlyViewedCards(element: HTMLElement) {
         dot.addEventListener("click", () => currentSlide(index + 1));
     });
 };
-
