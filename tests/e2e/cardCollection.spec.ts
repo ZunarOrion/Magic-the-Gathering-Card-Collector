@@ -13,9 +13,9 @@ test.describe('Collections', () => {
 
         //Creating a collection
         const collectionName = `Test Collection ${Date.now()}`;
-        await page.fill('#collections-input', collectionName);
+        await page.fill('#collection-input', collectionName);
         await page.click('button[type="submit"]');
-        await expect(page.locator('#collections-box').getByText(collectionName)).toBeVisible();
+        await expect(page.locator('#collection-box').getByText(collectionName)).toBeVisible();
 
         //Edeting a collection
         const boxCount = await page.locator('.collection-item').count();

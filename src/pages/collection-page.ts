@@ -2,12 +2,12 @@ export async function renderCollectionPage () {
     const pageContent = document.querySelector('#page-content');
     if (pageContent) {
         pageContent.innerHTML = `
-            <h1 id="collections-Header">Collections</h1>
-            <form method="post" id="collections-creator" action="">
-                <input id="collections-input" type="text"></input>
+            <h1 id="collection-Header">Collections</h1>
+            <form method="post" id="collection-creator" action="">
+                <input id="collection-input" type="text"></input>
                 <button type="submit" id="create">Create</button>
             </form>
-            <div id="collections-box"></div>
+            <div id="collection-box"></div>
             `;
                 
             try {
@@ -16,7 +16,7 @@ export async function renderCollectionPage () {
             );
             const collectionPosts = await collectionResponse.json();
             
-            const collectionsDiv = document.getElementById("collections-box") as HTMLElement;
+            const collectionsDiv = document.getElementById("collection-box") as HTMLElement;
             collectionsDiv.innerHTML = collectionPosts.map((post: any) => `
                 <div class="collection-item" data-id="${post._id}">
                     <label class="collection-name">${post.collection}</label>
