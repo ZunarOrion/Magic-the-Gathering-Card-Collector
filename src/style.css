@@ -92,17 +92,17 @@ header {
 
 
 /*  Collection page  */
-#collection-Header {
+#collections-Header {
   display: grid;
   align-content: center;
   justify-content: center;
 }
-#collection-creator {
+#collections-creator {
   display: flex;
   align-content: center;
   justify-content: center;
 }
-#collection-box {
+#collections-box {
   display: grid;
   align-content: center;
   justify-content: center;

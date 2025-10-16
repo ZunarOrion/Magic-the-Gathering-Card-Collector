@@ -8,14 +8,14 @@ test.describe('Collections', () => {
 
     test('Test collection page form', async ({ page }) => {
         //Eneting My collections page
-        await page.locator('#my-collection-btn').click();
+        await page.locator('#my-collections-btn').click();
         await expect(page.locator('h1')).toHaveText('Collections');
 
         //Creating a collection
         const collectionName = `Test Collection ${Date.now()}`;
-        await page.fill('#collection-input', collectionName);
+        await page.fill('#collections-input', collectionName);
         await page.click('button[type="submit"]');
-        await expect(page.locator('#collection-box').getByText(collectionName)).toBeVisible();
+        await expect(page.locator('#collections-box').getByText(collectionName)).toBeVisible();
 
         //Edeting a collection
         const boxCount = await page.locator('.collection-item').count();
