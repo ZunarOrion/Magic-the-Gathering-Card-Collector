@@ -4,6 +4,7 @@ import path from "path";
 import { MongoClient, ObjectId } from "mongodb";
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import dotenv from 'dotenv';
+import { validateCollectionName } from "./src/components/validators";
 
 dotenv.config();
 
@@ -41,6 +42,10 @@ await client.connect();
 
 app.post("/form", async (req: express.Request, res: express.Response) => {
     const data = req.body;
+    const collectionName = validateCollectionName(req.body.collection);
+    if (!collectionName) {
+        return res.status(400).json({ error: "Invalid collection name"});
+    };
 
     try {
         const db = client.db(mtg);
