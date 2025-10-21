@@ -44,36 +44,3 @@ export async function renderBrowseCardPage (data?: any[]) {
         };
     };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Put in to make unit test pass when running test and pushing to github.
-export function sum(a: number, b: number) {
-    return a + b
-}

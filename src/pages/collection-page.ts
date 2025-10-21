@@ -1,3 +1,5 @@
+import { validateCollectionName } from "../components/validators";
+
 export async function renderCollectionPage () {
     const pageContent = document.querySelector('#page-content');
     if (pageContent) {
@@ -37,12 +39,17 @@ export async function renderCollectionPage () {
 };
 
 export function collectionCreate () {
-    let collectionName = "";
     const mySubmitButton = document.getElementById("create");
     if (mySubmitButton) {
         mySubmitButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            collectionName = (document.getElementById("collection-input") as HTMLInputElement).value
+            const rawInput = (document.getElementById("collection-input") as HTMLInputElement).value;
+            const collectionName = validateCollectionName(rawInput);
+            if (!collectionName) {
+                alert("Invalid collection name.");
+                return;
+            };
+
             try {
                 const result = await fetch("/form", {
                     method: "POST",
