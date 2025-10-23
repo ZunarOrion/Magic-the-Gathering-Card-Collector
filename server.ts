@@ -5,8 +5,14 @@ import { MongoClient, ObjectId } from "mongodb";
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import dotenv from 'dotenv';
 import { validateCollectionName } from "./src/components/validators";
+import rateLimit from "express-rate-limit";
 
 dotenv.config();
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 50
+});
 
 const mtg = "mtg";
 const mtgCollections = "mtgCollections";
@@ -21,6 +27,7 @@ const __distpath = path.dirname(__dirname);
 const __distClientPath = path.join(__distpath, "client");
 
 app.use(express.json());
+app.use(limiter);
 
 let isTesting = process.env.NODE_ENV === "test";
 let uri;
