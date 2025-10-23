@@ -11,7 +11,7 @@ dotenv.config();
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 50
+    max: 100
 });
 
 const mtg = "mtg";

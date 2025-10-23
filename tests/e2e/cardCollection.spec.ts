@@ -8,6 +8,7 @@ test.describe('Collections', () => {
 
     test('Test collection page form', async ({ page }) => {
         //Eneting My collections page
+        await page.waitForSelector('#my-collections-btn', { state: 'visible' });
         await page.locator('#my-collections-btn').click();
         await expect(page.locator('h1')).toHaveText('Collections');
 
@@ -23,6 +24,7 @@ test.describe('Collections', () => {
         const editText = "Collection edited";
         page.on('dialog', dialog => dialog.accept(editText));
         await page.locator('.collection-item >> nth=0 >> .edit-btn').click();
+        await page.waitForSelector('.collection-name', { state: 'visible'});
         await expect(page.locator('.collection-name')).toHaveText(editText);
 
         //Deleteing a collection
